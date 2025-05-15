@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitar Orçamento</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="static/index.css" />
+</head>
+<body>
+  <header>
+    <h1>📨 Solicitar Orçamento</h1>
+    <p>Informe os dados para simular o valor do serviço</p>
+    <br>
+
+    <ul class="menu">
+                <a href="index.html">Início</a> <a href="orcamento.html">Orçamento</a> <a
+                    href="galeria.html">Galeria</a>
+
+                </nav>
+        </div>
+
+
+
+
+</header>
+
+
+  <main>
+    <section class="secao formulario">
+      <form id="formOrcamento">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="tipo">Tipo de Residência:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">-- Selecione --</option>
+          <option value="casa">Casa</option>
+          <option value="apartamento">Apartamento</option>
+          <option value="barracao">Barracão</option>
+        </select>
+
+        <label for="servico">Tipo de Serviço:</label>
+        <select id="servico" name="servico" required>
+          <option value="">-- Selecione --</option>
+          <option>Limpeza Geral de Residências</option>
+          <option>Faxina Pós-Obra</option>
+          <option>Limpeza de Vidros e Janelas</option>
+          <option>Limpeza de Cozinhas e Banheiros</option>
+        </select>
+
+        <label for="mensagem">Detalhes adicionais:</label>
+        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+
+        <button type="submit">Calcular Orçamento</button>
+      </form>
+
+      <div class="resultado" id="resultado"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Limpeza Residencial | Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById("formOrcamento").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const tipo = document.getElementById("tipo").value;
+      let preco = "";
+
+      if (tipo === "casa") {
+        preco = "R$ 200,00";
+      } else if (tipo === "apartamento") {
+        preco = "R$ 150,00";
+      } else if (tipo === "barracao") {
+        preco = "R$ 700,00";
+      } else {
+        preco = "Tipo de residência não selecionado.";
+      }
+
+      document.getElementById("resultado").textContent = `Valor estimado: ${preco}`;
+    });
+  </script>
+</body>
+</html>
